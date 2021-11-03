@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User API</title>
+</head>
+<body>
+    <input type="text" name="name" id="name">
+    <input type="text" name="email" id="email">
+    <input type="text" name="address" id="address">
+    <button onclick="postData()">Submit</button>
+
+
+
+<script>
+    var name=document.getElementById("name").value;
+    var email=document.getElementById("email").value;
+    var address=document.getElementById("address").value;
+    function postData(){
+        axios.post("https://assigment-api-hammad.herokuapp.com/user",{
+        name:name,
+        email:email,
+        address:address
+
+       }).then((res)=>{
+        console.log("created Successfully")
+    }).catch((e)=>{
+        console.log(e)
+    })
+
+    }
+    
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+</body>
+</html>
