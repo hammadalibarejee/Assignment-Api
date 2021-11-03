@@ -1,7 +1,9 @@
 import express from "express";
+import cors from "cors"
 const app=express();
 var port=  process.env.PORT ||3000;
 app.use(express.json());
+app.use(cors());
 let users=[];
 app.post('/user', (req, res) => {
 
