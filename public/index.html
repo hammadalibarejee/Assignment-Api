@@ -40,16 +40,16 @@
           <td></td>
         </tr>
       </table>
-      <!-- <div>
+      <div>
         <h2>Update the Data </h2>
-        <input type="number" name="" id="id" placeholder="enter ID:">
-        <input type="text" name="name" id="name" placeholder="Enter the Name:">
-        <input type="text" name="email" id="email" placeholder="Enter the Email">
-        <input type="text" name="address" id="address" placeholder="Enter the Address">
+        <input type="number" name="" id="uid" placeholder="enter ID:">
+        <input type="text" name="name" id="name1" placeholder="Enter the Name:">
+        <input type="text" name="email" id="email1" placeholder="Enter the Email">
+        <input type="text" name="address" id="address1" placeholder="Enter the Address">
         <button onclick="updateData()">Update</button>
 
       </div>
- -->
+
 
 <script>
     
@@ -97,7 +97,7 @@ function getData(){
   })
 }
 function deleteData(){
-    let id = document.getElementById("id").value;
+    let id = document.getElementById("id");
     axios.delete(`https://assigment-api-hammad.herokuapp.com/user/${id}`)
     .then((res)=>{
         console.log("Deleted Successfully")
@@ -109,18 +109,40 @@ function deleteData(){
 }    
 
 const updateData  = async() => {
-  var id=document.getElementById("id").value;
-  var name=document.getElementById("name").value;
-  var email=document.getElementById("email").value;
-  var address=document.getElementById("address").value;
+  var id=document.getElementById("uid").value;
+  console.log(id);
+  var name=document.getElementById("name1").value;
+  var email=document.getElementById("email1").value;
+  var address=document.getElementById("address1").value;
 
-  const res = await axios.put(`https://assigment-api-hammad.herokuapp.com/user/${id}`, { 
-    name,
-    email,
-    address
-   });
 
-  console.log(res); // { hello: 'world' }
+  if (name) { axios.put(`https://assigment-api-hammad.herokuapp.com/user/${id}`, { name }).then(res => location.reload()); }
+  if (email) { axios.put(`https://assigment-api-hammad.herokuapp.com/user/${id}`, { email }).then(res => location.reload()); }
+  if (address) { axios.put(`https://assigment-api-hammad.herokuapp.com/user/${id}`, { address }).then(res => location.reload()); }
+
+  // fetch(`https://assigment-api-hammad.herokuapp.com/user/${id}`,{
+  //   method:"PUT",
+  //   body:JSON.stringify({
+  //     name:name,
+  //     email:email,
+  //     address:address
+  //   })
+
+  // }).then(()=>{
+  //   console.log("updated");
+  // }).catch((e)=>{
+  //   console.log(e);
+  // })
+  
+  
+  // const res = await axios.put(`https://assigment-api-hammad.herokuapp.com/user/${id}`, { 
+  //   name:name,
+  //   email:email,
+  //   address:address
+
+  //  });
+
+  // console.log(res); // { hello: 'world' }
 
   // axios.put(`https://assigment-api-hammad.herokuapp.com/user/${id}`,{
   //       name:name,
