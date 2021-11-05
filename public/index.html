@@ -18,9 +18,9 @@
   
    
       <br>
-    <form>
+    
         
-    </form>
+    
     <div>
         <input type="number" name="id" id="id" placeholder="Enter ID to delete">
         <button onclick="deleteData()">Delete</button>
@@ -40,7 +40,15 @@
           <td></td>
         </tr>
       </table>
+      <div>
+        <h2>Update the Data </h2>
+        <input type="number" name="" id="id" placeholder="enter ID:">
+        <input type="text" name="name" id="name">
+        <input type="text" name="email" id="email">
+        <input type="text" name="address" id="address">
+        <button onclick="updateData()">Update</button>
 
+      </div>
 
 
 <script>
@@ -96,6 +104,26 @@ function deleteData(){
     })
 }    
 
+function updateData(){
+  var id=document.getElementById("id").value;
+  var name=document.getElementById("name").value;
+  var email=document.getElementById("email").value;
+  var address=document.getElementById("address").value;
+
+  axios.put(`https://assigment-api-hammad.herokuapp.com/user/${id}`),({
+        name:name,
+        email:email,
+        address:address
+  }).then((res)=>{
+        console.log(" Updated Successfully")
+        // getData()
+        location.reload()
+
+    }).catch((e)=>{
+        console.log(e)
+    })
+
+}
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
