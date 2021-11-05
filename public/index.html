@@ -6,21 +6,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User API</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body onload="getData()">
-    <form>
-    <input type="text" name="name" id="name">
-    <input type="text" name="email" id="email">
-    <input type="text" name="address" id="address">
+  <h1>Hammad Ali</h1>
+    
+    <input type="text" name="name" id="name" placeholder="Enter you name:">
+    <input type="text" name="email" id="email" placeholder="Enter your email:">
+    <input type="text" name="address" id="address" placeholder="Enter your Address:">
     <button onclick="postData()">Submit</button>
   
-    </form>
+   
       <br>
     <form>
         
     </form>
     <div>
-        <input type="numer" name="id" id="id" placeholder="Enter ID to delete">
+        <input type="number" name="id" id="id" placeholder="Enter ID to delete">
         <button onclick="deleteData()">Delete</button>
     </div>
 
@@ -54,7 +56,8 @@
 
        }).then((res)=>{
         console.log("created Successfully")
-        getData();
+        // getData()
+        location.reload()
 
     }).catch((e)=>{
         console.log(e)
@@ -86,7 +89,8 @@ function deleteData(){
     axios.delete(`https://assigment-api-hammad.herokuapp.com/user/${id}`)
     .then((res)=>{
         console.log("Deleted Successfully")
-        getData();
+        // getData();
+        location.reload()
     }).catch((e)=>{
         console.log(e)
     })
