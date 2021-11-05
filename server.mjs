@@ -54,7 +54,7 @@ app.delete('/user/:id', (req, res) => {
 
     if (users[req.params.id]) {
 
-        users[req.params.id] =null;
+        users[req.params.id] ={} ;
         res.send("user deleted");
 
     } else {
