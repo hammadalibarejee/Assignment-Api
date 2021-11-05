@@ -48,6 +48,8 @@
 
        }).then((res)=>{
         console.log("created Successfully")
+        getData();
+
     }).catch((e)=>{
         console.log(e)
     })
@@ -67,6 +69,7 @@ function getData(){
           <td>${v.address}</td>
         </tr>`
     })
+    
     console.log(response.data);
 
     
@@ -77,6 +80,7 @@ function deleteData(){
     axios.delete(`https://assigment-api-hammad.herokuapp.com/user/${id}`)
     .then((res)=>{
         console.log("Deleted Successfully")
+        getData();
     }).catch((e)=>{
         console.log(e)
     })
