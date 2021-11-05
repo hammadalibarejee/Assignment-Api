@@ -43,9 +43,9 @@
       <div>
         <h2>Update the Data </h2>
         <input type="number" name="" id="id" placeholder="enter ID:">
-        <input type="text" name="name" id="name">
-        <input type="text" name="email" id="email">
-        <input type="text" name="address" id="address">
+        <input type="text" name="name" id="name" placeholder="Enter the Name:">
+        <input type="text" name="email" id="email" placeholder="Enter the Email">
+        <input type="text" name="address" id="address" placeholder="Enter the Address">
         <button onclick="updateData()">Update</button>
 
       </div>
@@ -110,7 +110,7 @@ function updateData(){
   var email=document.getElementById("email").value;
   var address=document.getElementById("address").value;
 
-  axios.put(`https://assigment-api-hammad.herokuapp.com/user/${id}`),({
+  axios.put(`https://assigment-api-hammad.herokuapp.com/user/${id}`,{
         name:name,
         email:email,
         address:address
